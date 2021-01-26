@@ -13,7 +13,7 @@ $(builddir):
 
 define FEATURE_DIR_RULE
 
-$(builddir)/$(dir $(1)): $(builddir)
+$(builddir)/$(subst $(testdir)/,,$(1)): $(builddir)
 	mkdir $@
 
 endef
@@ -22,7 +22,7 @@ $(foreach feature,$(features),$(eval $(call FEATURE_DIR_RULE,$(feature))))
 
 define TEST_DIR_RULE
 
-$(builddir)/$(1): $(builddir)/$(dir $(1))
+$(builddir)/$(1): $(builddir)/$(1)
 	mkdir $@
 
 endef
