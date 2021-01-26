@@ -13,7 +13,7 @@ $(builddir):
 
 define FEATURE_DIR_RULE
 
-$(builddir)/$(1): $(builddir)
+$(builddir)/$(dir $(1)): $(builddir)
 	mkdir $@
 
 endef
